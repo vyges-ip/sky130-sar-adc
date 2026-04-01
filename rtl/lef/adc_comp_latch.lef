@@ -1,0 +1,98 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO adc_comp_latch
+  CLASS BLOCK ;
+  FOREIGN adc_comp_latch ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 42.000 BY 129.000 ;
+  PIN VDD
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 38.730 50.000 40.330 77.980 ;
+    END
+  END VDD
+  PIN VSS
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 36.780 50.000 38.380 77.980 ;
+    END
+  END VSS
+  PIN clk
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 11.185 61.810 11.835 62.110 ;
+    END
+  END clk
+  PIN inp
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 11.185 67.770 17.800 68.070 ;
+    END
+  END inp
+  PIN inn
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 11.185 67.170 17.170 67.470 ;
+    END
+  END inn
+  PIN comp_trig
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 34.860 64.165 40.330 64.465 ;
+    END
+  END comp_trig
+  PIN latch_qn
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 37.260 65.960 40.330 66.260 ;
+    END
+  END latch_qn
+  PIN latch_q
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 36.745 65.325 40.330 65.625 ;
+    END
+  END latch_q
+  OBS
+      LAYER li1 ;
+        RECT 11.975 50.000 38.015 77.980 ;
+      LAYER met1 ;
+        RECT 11.910 51.040 40.330 76.890 ;
+      LAYER met2 ;
+        RECT 11.790 51.040 40.330 76.890 ;
+      LAYER met3 ;
+        RECT 11.785 68.470 40.330 76.890 ;
+        RECT 18.200 67.370 40.330 68.470 ;
+        RECT 17.570 66.770 40.330 67.370 ;
+        RECT 11.785 66.660 40.330 66.770 ;
+        RECT 11.785 66.025 36.860 66.660 ;
+        RECT 11.785 64.925 36.345 66.025 ;
+        RECT 11.785 64.865 40.330 64.925 ;
+        RECT 11.785 63.765 34.460 64.865 ;
+        RECT 11.785 62.510 40.330 63.765 ;
+        RECT 12.235 61.410 40.330 62.510 ;
+        RECT 11.785 51.040 40.330 61.410 ;
+      LAYER met4 ;
+        RECT 12.010 51.040 36.380 76.890 ;
+  END
+END adc_comp_latch
+END LIBRARY
+

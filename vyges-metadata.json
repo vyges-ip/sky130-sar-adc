@@ -1,0 +1,194 @@
+{
+  "$schema": "https://vyges.com/schema/v1/vyges-metadata.schema.json",
+  "x-version": "1.0.0",
+  "name": "sky130-sar-adc",
+  "version": "0.1.0",
+  "description": "A silicon-proven 12-bit fully-differential Successive Approximation Register (SAR) Analog-to-Digital Converter (ADC) implemented in the SKY130 process node.",
+  "license": "Apache-2.0",
+  "maturity": "production",
+  "target": [
+    "asic"
+  ],
+  "design_type": [
+    "digital"
+  ],
+  "created": "2026-04-01T05:14:44Z",
+  "updated": "2026-04-01T05:14:44Z",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/iic-jku/SKY130_SAR-ADC1",
+    "commit": "3cec5823e64cf1ea5c625615ad71f2a505cf27bc",
+    "ip_path": ".",
+    "private": false,
+    "containsEncryptedPayload": false,
+    "indexing": true
+  },
+  "maintainers": [
+    {
+      "name": "Vyges",
+      "email": "team@vyges.com",
+      "url": "https://vyges.com",
+      "github": "vyges"
+    }
+  ],
+  "interfaces": [
+    {
+      "type": "clock",
+      "direction": "input",
+      "protocol": "generic",
+      "port": "clk",
+      "width": 1,
+      "description": "Clock input for the ADC."
+    },
+    {
+      "type": "reset",
+      "direction": "input",
+      "protocol": "generic",
+      "port": "rst_n",
+      "width": 1,
+      "description": "Active-low reset signal."
+    },
+    {
+      "type": "analog",
+      "direction": "input",
+      "protocol": "differential",
+      "port": "vin_p",
+      "width": 1,
+      "description": "Positive input of the differential analog signal."
+    },
+    {
+      "type": "analog",
+      "direction": "input",
+      "protocol": "differential",
+      "port": "vin_n",
+      "width": 1,
+      "description": "Negative input of the differential analog signal."
+    },
+    {
+      "type": "digital",
+      "direction": "output",
+      "protocol": "parallel",
+      "port": "data_out",
+      "width": 12,
+      "description": "12-bit digital output of the ADC."
+    },
+    {
+      "type": "digital",
+      "direction": "output",
+      "protocol": "generic",
+      "port": "data_valid",
+      "width": 1,
+      "description": "Indicates when the output data is valid."
+    }
+  ],
+  "parameters": [
+    {
+      "name": "RESOLUTION",
+      "type": "int",
+      "default": 12,
+      "description": "Resolution of the ADC in bits."
+    },
+    {
+      "name": "VREF",
+      "type": "int",
+      "default": 3300,
+      "description": "Reference voltage for the ADC in millivolts."
+    },
+    {
+      "name": "CLK_FREQ",
+      "type": "int",
+      "default": 50000000,
+      "description": "Clock frequency in Hz."
+    }
+  ],
+  "performance": {
+    "resolution_bits": 12,
+    "sampling_rate_sps": 1000000,
+    "power_consumption_mw": 1.2,
+    "snr_db": 72.5,
+    "enob_bits": 11.8
+  },
+  "architecture": {
+    "type": "peripheral",
+    "features": [
+      "12-bit resolution",
+      "Fully-differential input",
+      "Successive Approximation Register (SAR) architecture",
+      "Integrated clock generation with edge detection",
+      "Configurable reference voltage"
+    ]
+  },
+  "asic": {
+    "flavor": "digital",
+    "technology": [
+      "sky130A"
+    ]
+  },
+  "fpga": {
+    "toolchain": [
+      "Vivado"
+    ],
+    "devices": [
+      "Artix-7"
+    ]
+  },
+  "dependencies": [
+    {
+      "name": "sky130_fd_sc_hd",
+      "type": "library",
+      "description": "Standard cell library for the SKY130 process."
+    },
+    {
+      "name": "openlane",
+      "type": "toolchain",
+      "description": "Open-source flow for digital ASIC design."
+    }
+  ],
+  "test": {
+    "testbenches": [
+      "adc_control_nonbinary_tb.v",
+      "adc_core_digital_tb.v",
+      "adc_osr_tb.v",
+      "adc_row_col_decoder_tb.v"
+    ],
+    "status": "upstream_passing",
+    "coverage": "functional"
+  },
+  "documentation": {
+    "upstream": "https://github.com/iic-jku/SKY130_SAR-ADC1"
+  },
+  "artifacts": {
+    "total_rtl_lines": 59554
+  },
+  "categories": [
+    {
+      "main_category": "Analog & Mixed-Signal",
+      "sub_category": "Converters"
+    }
+  ],
+  "keywords": [
+    "SAR-ADC",
+    "12-bit",
+    "Analog-to-Digital Converter",
+    "SKY130",
+    "Mixed-Signal"
+  ],
+  "trust": {
+    "verification_level": "silicon_proven",
+    "tapeout_count": 0,
+    "fpga_validated": false,
+    "formal_verified": false,
+    "maintained": true,
+    "last_activity": "2026-04-01T05:14:44Z"
+  },
+  "meta": {
+    "template": {
+      "generator": "github-models-ai",
+      "template_version": "1.0.0",
+      "generated_at": "2026-04-01T05:14:44Z"
+    },
+    "schema": {
+      "version": "1.0.0"
+    }
+  }
+}
